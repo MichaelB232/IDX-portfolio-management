@@ -62,5 +62,6 @@ def fetch_stock_data(tickerList=IDX_STOCKS):
     return pd.DataFrame(all_data)
 
 
+# asda
 def get_price_history(ticker, period="1y"):
     return yf.Ticker(ticker).history(period=period)
