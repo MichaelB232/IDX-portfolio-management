@@ -65,17 +65,13 @@ class AHPEngine:
                 if benefit:
 
                     result = (
-                        data_values[i] / data_values[j]
-                        if data_values[j] != 0
-                        else 9
+                        data_values[i] / data_values[j] if data_values[j] != 0 else 9
                     )
 
                 else:
 
                     result = (
-                        data_values[j] / data_values[i]
-                        if data_values[i] != 0
-                        else 9
+                        data_values[j] / data_values[i] if data_values[i] != 0 else 9
                     )
 
                 result = min(max(result, 1 / 9), 9)
@@ -105,9 +101,7 @@ class AHPEngine:
 
         weights = self.calculate_weights(norm_matrix)
 
-        lambda_max = np.mean(
-            np.dot(matrix, weights) / weights
-        )
+        lambda_max = np.mean(np.dot(matrix, weights) / weights)
 
         CI = (lambda_max - n) / (n - 1)
 
